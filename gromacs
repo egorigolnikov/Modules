@@ -18,7 +18,6 @@ proc ModulesHelp { } {
         puts stderr "    $url\n"
 }
 
-module-whatis   "Sets the environment for $desc"
 
 
 set             GROMACS_DIR     ${GMXPREFIX}
