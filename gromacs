@@ -1,0 +1,33 @@
+#%Module1.0
+#
+# GROMACS modulefile
+# Date: 
+# Author: 
+#
+set     name           "GROMACS"
+set     version        "2016"
+set     url            "http://www.gromacs.org/"
+set     GMXPREFIX      "/home/igolnikov/B/bin/"
+
+proc ModulesHelp { } {
+        global name
+        global desc
+        global url
+        puts stderr "This module provides $desc\n"
+        puts stderr "More information about $name can be found at:"
+        puts stderr "    $url\n"
+}
+
+module-whatis   "Sets the environment for $desc"
+
+
+set             GROMACS_DIR     ${GMXPREFIX}
+setenv          GMXBIN          ${GROMACS_DIR}/bin
+prepend-path    PATH            ${GROMACS_DIR}/bin
+setenv          GMXLDLIB        ${GROMACS_DIR}/lib
+prepend-path    LD_LIBRARY_PATH ${GROMACS_DIR}/lib64
+prepend-path    PKG_CONFIG_PATH ${GROMACS_DIR}/lib64/pkgconfig
+setenv          GMXMAN          ${GROMACS_DIR}/share/man
+prepend-path    MANPATH         ${GROMACS_DIR}/share/man
+setenv          GMXDATA         ${GROMACS_DIR}/share/gromacs
+setenv          GMX_FONT        10x20
